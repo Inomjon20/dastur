@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isChecked = false; // Checkbox holatini saqlovchi o'zgaruvchi
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Checkbox Misoli'),
+        ),
+        body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Checkbox(
+                value: isChecked, // Katakcha holati (tanlangan/tanlanmagan)
+                onChanged: (bool? value) {
+                  setState(() {
+                    isChecked = value!; // Yangi qiymatni holatga yuklash
+                  });
+                },
+              ),
+              Text('Tanlash'),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
